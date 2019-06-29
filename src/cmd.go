@@ -1,14 +1,15 @@
 package main
+
 import (
-	"github.com/lealife/leacrawler"
-	"time"
 	"fmt"
+	"github.com/zhaopengme/leacrawler"
 	"os"
+	"time"
 )
 
 func main() {
 	argNum := len(os.Args)
-	
+
 	if argNum != 3 {
 		fmt.Println("-------------")
 		fmt.Println("error!!!")
@@ -19,18 +20,18 @@ func main() {
 		fmt.Println("-------------")
 		return;
 	}
-	
+
 	url := os.Args[1]
 	path := os.Args[2]
-    
+
 	start := time.Now()
 	fmt.Println("start...")
 
 	lea := leacrawler.NewCrawler()
-	
-//    url := "http://bucketadmin.themebucket.net/index.html"
-//    path := "/Users/life/Desktop/LeaSpider";
+
+	//    url := "http://bucketadmin.themebucket.net/index.html"
+	//    path := "/Users/life/Desktop/LeaSpider";
 	lea.Fetch(url, path)
-	
+
 	fmt.Printf("time cost %v\n", time.Now().Sub(start))
 }
